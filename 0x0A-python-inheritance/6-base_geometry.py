@@ -1,17 +1,12 @@
 #!/usr/bin/python3
 """
-This module contains a class
-with public instance and Raises
-exception when required
+An empty class
 """
 
 
 class BaseGeometry:
-    """
-    class Base has public instance
-    """
+    """Public instance method: def area(self)"""
+
     def area(self):
-        """
-        function that raises exception
-        """
+        """raises an Exception with the message area() is not implemented"""
         raise Exception("area() is not implemented")

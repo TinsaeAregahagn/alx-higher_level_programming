@@ -1,52 +1,39 @@
 #!/usr/bin/python3
 """
-This module contains a class
-with public instance and Raises
-exception when required
+Module 9-rectangle
+Contains parent class BaseGeometry
+with public instance method area and integer_validation
+Contains subclass Rectangle
+with instantiation of private attributes width and height, validated by parent,
+extends parent's area method and prints with __str__
 """
-
-
-class BaseGeometry:
-    """
-    class Base has 2 public instances
-    """
-    def area(self):
-        """
-        function that raises exception
-        """
-        raise Exception("area() is not implemented")
-
-    def integer_validator(self, name, value):
-        """
-        function that validates value
-        """
-        if not isinstance(value, int):
-            raise TypeError("{:s} must be an integer".format(name))
-        if value <= 0:
-            raise ValueError("{:s} must be greater than 0".format(name))
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
+    """inherits from BaseGeometry
+    Methods:
+        __init__(self, width, height)
+        area(self)
+        __str__
     """
-    class Rectangle with private height and width
-    """
+
     def __init__(self, width, height):
-        """
-        instantiation of class
+        """validate and initialize width and height
+        Args:
+            width (int): private
+            height (int): private
         """
         self.integer_validator("width", width)
-        self.__width = width
         self.integer_validator("height", height)
+        self.__width = width
         self.__height = height
 
     def area(self):
-        """
-        returns area of a rectangle
-        """
-        return (self.__width * self.__height)
+        """extends parent's empty method and returns area"""
+        return self.__width * self.__height
 
     def __str__(self):
-        """
-        string representation of the rectangle
-        """
-        return("[Rectangle] {:d}/{:d}".format(self.__width, self.__height))
+        """prints [Rectangle] <width>/<height>"""
+        return "[{:s}] {:d}/{:d}".format(self.__class__.__name__,
+                                         self.__width, self.__height)

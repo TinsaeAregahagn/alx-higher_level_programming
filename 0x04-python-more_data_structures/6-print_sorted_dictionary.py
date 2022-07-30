@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-
 def print_sorted_dictionary(a_dictionary):
-    sorted_dic_array = (sorted(a_dictionary.keys()))
-
-    for key in sorted_dic_array:
-        print("{:s}: {}".format(key, a_dictionary[key]))
+    sort_dic = []
+    for i in a_dictionary:
+        sort_dic.append(i)
+    sort_dic.sort()
+    for i in sort_dic:
+        print('{}: {}'.format(i, a_dictionary[i]))

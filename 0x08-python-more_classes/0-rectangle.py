@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 """
-This module defines a class - Rectangle
+Create a rectangle class
 """
 
 
 class Rectangle:
     """
-    This is an empty class
+    The class rectangle
     """
-    pass

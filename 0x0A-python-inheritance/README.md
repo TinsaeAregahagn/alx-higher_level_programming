@@ -1,16 +1,43 @@
-0x0A. Python - Inheritance
+# Python - Inheritance
+## Ongoing project - started Jul 4, 2022, must end by Jul 5, 2022.
+## At the end of this project, I am expected to be able to explain to anyone, without the help of Google:
 
-## Project
-- Write a function that returns the list of available attributes and methods of an object
-- Write a class MyList that inherits from list
-- Write a function that returns True if the object is exactly an instance of the specified class ; otherwise False.
-- Write a function that returns True if the object is an instance of, or if the object is an instance of a class that inherited from, the specified class ; otherwise False.
-- Write a function that returns True if the object is an instance of a class that inherited (directly or indirectly) from the specified class ; otherwise False.
-- Write an empty class BaseGeometry.
+- Why Python programming is awesome
 
-- Write a class BaseGeometry (based on 5-base_geometry.py).
-- Write a class BaseGeometry (based on 6-base_geometry.py).
-- Write a class Rectangle that inherits from BaseGeometry (7-base_geometry.py).
-- Write a class Rectangle that inherits from BaseGeometry (7-base_geometry.py). (task based on 8-rectangle.py
-- Write a class Square that inherits from Rectangle (9-rectangle.py)
-- Write a class Square that inherits from Rectangle (9-rectangle.py). (task based on 10-square.py).
+- What is a superclass, baseclass or parentclass
+
+- What is a subclass
+
+- How to list all attributes and methods of a class or instance
+
+- When can an instance have new attributes
+
+- How to inherit class from another
+
+- How to define a class with multiple base classes
+
+- What is the default class every class inherit from
+
+- How to override a method or attribute inherited from the base class
+
+- Which attributes or methods are available by heritage to subclasses
+
+- What is the purpose of inheritance
+
+- What are, when and how to use isinstance, issubclass, type and super built-in functions
+
+## Doctest
+
+- python3 -m doctest -v ./tests/file-name.txt | tail -2
+
+
+# RESOURCES
+[Inheritance](https://docs.python.org/3/tutorial/classes.html#inheritance)
+
+[Multiple inheritance](https://docs.python.org/3/tutorial/classes.html#multiple-inheritance)
+
+[Inheritance in Python](https://www.packt.com/inheritance-python/)
+
+[Learn to program 10: Inheritancs Magic Method](https://www.youtube.com/watch?v=d8kCdLCi6Lk)
+
+

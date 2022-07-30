@@ -1,16 +1,19 @@
 #!/usr/bin/python3
 """
-This module is to print names
+a function that prints My name is <first name> <last name>
+The first name must be a string
+The last name must be a string
 """
 
 
 def say_my_name(first_name, last_name=""):
     """
-    function to print name
+    Defining the function name and arguments to be taken
     """
-    if not isinstance(first_name, str):
-        raise TypeError('first_name must be a string')
-    elif not isinstance(last_name, str):
-        raise TypeError('last_name must be a string')
-    else:
-        print("My name is {} {}". format(first_name, last_name))
+    if type(first_name) is not str:
+        raise TypeError("first_name must be a string")
+
+    if type(last_name) is not str:
+        raise TypeError("first_name must be a string")
+
+    print(f"My name is {first_name} {last_name}")

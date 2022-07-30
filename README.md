@@ -1,1 +1,5 @@
-Higher level programming - Python
+# HIGH LEVEL PROGRAMMING
+
+- Python
+- SQL
+- JAVASCRIPT

@@ -1,22 +1,30 @@
 #!/usr/bin/python3
 """
-This modules contains a class
-that inherits from int
+A class MyInt that inherits from int:
+MyInt is a rebel. MyInt has == and != operators inverted
+I'm not allowed to import any module
 """
 
 
 class MyInt(int):
     """
-    responds opposite to == and !=
+    MyInt that inherits from int
     """
+
+    def __init__(self, num):
+        """initialize num"""
+        self.num = num
+
     def __eq__(self, other):
         """
-        returns opposite of equal
+        Return:
+           True if both not equal
         """
-        return (not super().__eq__(other))
+        return self.num != other
 
     def __ne__(self, other):
         """
-        returns opposite of not equal
+        Return:
+           True if both equal
         """
-        return (not super().__ne__(other))
+        return self.num == other

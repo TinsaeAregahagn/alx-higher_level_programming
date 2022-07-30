@@ -1,15 +1,22 @@
 #!/usr/bin/python3
 """
-This module prints text with 2 newlines after
-character - . ? :
+Prints text with 2 new lines after each of these characters: ., ? and :
+There should be no space at the beginning or at the end of each printed line
+text must be a string otherwise a typeerror will be raised
 """
 
 
 def text_indentation(text):
     """
-    function to print text and 2 newlines
+    Text indentation function
     """
-    if text is None or not isinstance(text, str) or len(text) < 0:
-        raise TypeError('text must be a string')
-    string = "".join([a if a not in ".?:" else a + "\n\n" for a in text])
-    print("\n".join([x.strip() for x in string.split("\n")]), end="")
+
+    if type(text) is not str:
+        raise TypeError("text must be a string")
+
+    for char in ".?:":
+        text = text.replace(char, char + "\n\n")
+
+    list_lines = [lines.strip(' ') for lines in text.split('\n')]
+    revised = "\n".join(list_lines)
+    print(revised, end="")

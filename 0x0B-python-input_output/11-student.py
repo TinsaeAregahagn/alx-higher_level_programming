@@ -1,25 +1,31 @@
 #!/usr/bin/python3
-"""
-This module creates a class
-student with defined attributes
-"""
+"""Student to JSON"""
 
 
 class Student:
-    """
-    This class is defining the attributes for
-    the said class
-    """
+    """Defines a student"""
+
     def __init__(self, first_name, last_name, age):
-        """
-        This is the instantiation of the attributes
-        """
+        """Initializes the data"""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
-    def to_json(self):
-        """
-        returns dictionary rep of all instances
-        """
-        return (self.__dict__)
+    def to_json(self, attrs=None):
+
+        """Returns a dictionary representation of a Student instance"""
+        if attrs is None:
+            return self.__dict__
+        new_dict = {}
+
+        for i in attrs:
+            try:
+                new_dict[i] = self.__dict__[i]
+            except Exception:
+                pass
+        return new_dict
+
+    def reload_from_json(self, json):
+        """Replaces all attributes of the Student instance"""
+        for i in json:
+            self.__dict__.update({i: json[i]})

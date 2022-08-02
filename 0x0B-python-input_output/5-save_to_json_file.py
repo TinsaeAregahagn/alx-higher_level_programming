@@ -1,12 +1,17 @@
 #!/usr/bin/python3
 """
-A function that returns an object (Python data structure)
-represented by a JSON string:
+Module for save_to_json_file method.
 """
 
 
+import json
+
+
 def save_to_json_file(my_obj, filename):
-    """caling the function and importing json"""
-    import json
-    with open(filename, 'w', encoding="UTF8") as jsonsave:
-        jsonsave.write(json.dumps(my_obj))
+    """Writes an object to a text file using JSON representation.
+    Args:
+        my_obj (object): object to be serialized.
+        filename (str): name of file where string is stored.
+    """
+    with open(filename, "w",) as j_file:
+        json.dump(my_obj, j_file)

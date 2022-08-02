@@ -1,10 +1,14 @@
 #!/usr/bin/python3
 """
-A function that reads a text file (UTF8) and prints it to stdout:
+Module for read_file method.
 """
 
 
 def read_file(filename=""):
-    """calling the function"""
-    with open(filename, encoding="UTF-8") as readfile:
-        print(readfile.read(), end="")
+    """
+    Reads text file and prints to STDOUT
+    """
+
+    with open(filename, "r", encoding="UTF-8") as f:
+        for line in f:
+            print(line, end="")

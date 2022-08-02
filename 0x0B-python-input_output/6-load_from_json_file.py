@@ -1,11 +1,17 @@
 #!/usr/bin/python3
 """
-A function that creates an Object from a “JSON file”:
+Module for load_from_json_file method.
 """
 
 
+import json
+
+
 def load_from_json_file(filename):
-    """Methode load fron json file"""
-    import json
-    with open(filename, "r", encoding="UTF8") as loadjson:
-        return json.load(loadjson)
+    """loads an object from JSON file.
+        Args:
+            filename (str): name of file.
+    """
+    with open(filename, "r") as j_file:
+        my_obj = json.load(j_file)
+        return my_obj

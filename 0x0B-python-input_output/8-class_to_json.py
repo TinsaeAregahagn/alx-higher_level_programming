@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-"""Task 08 class to json"""
+"""
+Module for class_to_json method.
+"""
 
 
 def class_to_json(obj):
-    """Returns the dictionary description with simple data
-    structure (list, dictionary, string, integer and boolean)
-    for JSON serialization of an object
+    """
+        returns dictionary representation with simple data structure.
     """
     return obj.__dict__

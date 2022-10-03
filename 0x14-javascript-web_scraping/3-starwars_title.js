@@ -1,8 +1,13 @@
 #!/usr/bin/node
+/* display the status code of a GET request */
 const request = require('request');
-request.get('http://swapi.co/api/films/' + process.argv[2] + '/', function (err, response, body) {
-  if (err) throw err;
-  else if (response.statusCode === 200) {
-    console.log(JSON.parse(body).title);
-  }
-});
+
+request('https://swapi-api.hbtn.io/api/films/' + process.argv[2],
+  function (error, response, body) {
+    if (error) {
+      console.log(error);
+    } else {
+      const movieInfo = JSON.parse(body);
+      console.log(movieInfo.title);
+    }
+  });

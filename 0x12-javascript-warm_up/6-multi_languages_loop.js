@@ -1,8 +1,8 @@
 #!/usr/bin/node
-let arr = ['C is fun', 'Python is cool', 'Javascript is amazing'];
-let length = arr.length;
-let i = 0;
+const myArray = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
 
-for (i = 0; i < length; i++) {
-  console.log(arr[i]);
+let i;
+
+for (i = 0; i < myArray.length; i++) {
+  console.log(myArray[i]);
 }

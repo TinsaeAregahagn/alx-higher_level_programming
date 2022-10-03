@@ -1,15 +1,22 @@
 #!/usr/bin/node
+/* computes the number of tasks completed by user id. */
 const request = require('request');
 
-request.get(process.argv[2], function (err, response, body) {
-  if (err) throw err;
-  if (response.statusCode === 200) {
-    let done = {};
-    for (let task of JSON.parse(body)) {
-      if (task.completed === true) {
-        if (task.userId in done) { done[task.userId] += 1; } else { done[task.userId] = 1; }
+request(process.argv[2], function (error, response, body) {
+  if (!error) {
+    const jsonFile = JSON.parse(body);
+    const taskComplete = {};
+    for (const i in jsonFile) {
+      const data = jsonFile[i];
+      if (data.completed === true) {
+        const id = data.userId;
+        if (id in taskComplete) {
+          taskComplete[id]++;
+        } else {
+          taskComplete[id] = 1;
+        }
       }
     }
-    console.log(done);
+    console.log(taskComplete);
   }
 });

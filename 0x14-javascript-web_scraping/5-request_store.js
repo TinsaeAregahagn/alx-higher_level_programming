@@ -1,10 +1,16 @@
 #!/usr/bin/node
-let fs = require('fs');
-let request = require('request');
+/* gets the contents of a webpage and stores it in a file */
+const fs = require('fs');
+const request = require('request');
 
-request.get(process.argv[2], function (err, response, body) {
-  if (err) throw err;
-  else {
-    fs.writeFile(process.argv[3], body, 'utf8');
+request(process.argv[2], function (error, response, body) {
+  if (error) {
+    console.log(error);
+  } else {
+    fs.writeFile(process.argv[3], body, 'utf-8', function (err, data) {
+      if (err) {
+        return console.log(err);
+      }
+    });
   }
 });

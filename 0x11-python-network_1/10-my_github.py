@@ -1,15 +1,15 @@
 #!/usr/bin/python3
-import requests
-from sys import argv
-"""
-script takes githut creds and uses to display id
-"""
+'''task 9 script'''
 
+if __name__ == '__main__':
+    import requests
+    import sys
 
-if __name__ == "__main__":
-    uid = requests.get('https://api.github.com/user',
-                       auth=(argv[1], argv[2])).json()
-    if "id" in uid:
-        print(uid['id'])
-    else:
-        print(None)
+    user = sys.argv[1]
+    token = sys.argv[2]
+    headers = {
+              'Authorization': 'token {}'.format(token),
+              'Accept': 'application/vnd.github.v3+json',
+              }
+    res = requests.get('https://api.github.com/user', headers=headers)
+    print(res.json().get('id', 'None'))

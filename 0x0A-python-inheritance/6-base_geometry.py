@@ -1,12 +1,13 @@
 #!/usr/bin/python3
-"""
-An empty class
-"""
+'''task 6 module'''
 
 
 class BaseGeometry:
-    """Public instance method: def area(self)"""
+    '''empty class'''
+    def __init__(self):
+        '''empty init'''
+        pass
 
     def area(self):
-        """raises an Exception with the message area() is not implemented"""
-        raise Exception("area() is not implemented")
+        '''stupid function'''
+        raise Exception('area() is not implemented')

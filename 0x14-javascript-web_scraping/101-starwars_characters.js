@@ -1,27 +1,26 @@
 #!/usr/bin/node
-
 const request = require('request');
 
-request('http://swapi.co/api/films/' + process.argv[2], function (err, res, body) {
-  if (err) console.log(err);
-  else {
-    let characters = JSON.parse(body).characters;
-    let promiselist = [];
-    for (let character in characters) {
-      const namepromise = new Promise(resolve => {
-        request(characters[character], function (err, res, body) {
-          if (err) console.log(err);
-          else {
-            resolve(JSON.parse(body).name);
-          }
-        });
-      });
-      promiselist.push(namepromise);
+if (process.argv.length > 2) {
+  const url = 'https://swapi-api.hbtn.io/api/films/' + process.argv[2];
+  request(url, (err, res, body) => {
+    if (err) {
+      console.log(err);
+    } else {
+      const movie = JSON.parse(body);
+      const namespromises = movie.characters.map(char =>
+        new Promise((resolve, reject) => {
+          request(char, (err, res, body) => {
+            if (err) {
+              reject(err);
+            } else {
+              resolve(JSON.parse(body).name);
+            }
+          });
+        })
+      );
+      Promise.all(namespromises).then(names => console.log(names.join('\n')));
     }
-    Promise.all(promiselist).then(function (namelist) {
-      for (let name in namelist) {
-        console.log(namelist[name]);
-      }
-    });
-  }
-});
+  });
+}
+

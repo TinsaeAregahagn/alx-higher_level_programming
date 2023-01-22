@@ -1,18 +1,24 @@
 #!/usr/bin/python3
-"""
-script that lists all state objects from the
-db takes 3 args result needs to be sorted
-"""
+'''script  for task 7'''
+
+from model_state import Base, State
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+import sys
+
 if __name__ == "__main__":
-    from sys import argv
-    from model_state import Base, State
-    from sqlalchemy import create_engine
-    from sqlalchemy.orm import sessionmaker
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.
-                           format(argv[1], argv[2], argv[3]),
-                           pool_pre_ping=True)
-    session = sessionmaker(bind=engine)
-    Base.metadata.create_all(engine)
-    for st in session().query(State).order_by(State.id):
-        print("{}: {}".format(st.id, st.name))
-    session().close()
+    username = sys.argv[1]
+    password = sys.argv[2]
+    db_name = sys.argv[3]
+    host = 'localhost'
+    port = '3306'
+    engine = create_engine('mysql+mysqldb://{}:{}@{}:{}/{}'.format(
+             username, password, host, port, db_name), pool_pre_ping=True)
+    Session = sessionmaker(bind=engine)
+    local_session = Session()
+    states = local_session.query(State).order_by(State.id).all()
+    local_session.close()
+    engine.dispose()
+
+    for state in states:
+        print(str(state.id) + ': ' + state.name)

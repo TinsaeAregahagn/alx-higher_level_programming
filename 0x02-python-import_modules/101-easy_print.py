@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-import Olumide
+__import__("101-print")

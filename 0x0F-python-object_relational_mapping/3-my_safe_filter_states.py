@@ -1,19 +1,20 @@
 #!/usr/bin/python3
-"""
-script that is safe from SQL injections
-"""
+"""takes in an argument and displays all values
+in the states table of hbtn_0e_0_usa
+where name matches the argument
+and is safe from SQL injections"""
 
+if __name__ == '__main__':
 
-if __name__ == "__main__":
-    from sys import argv
     import MySQLdb
-    db = MySQLdb.connect(user=argv[1], passwd=argv[2], db=argv[3])
+    import sys
+
+    db = MySQLdb.connect(host='localhost', port=3306,
+                         user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
+
     cur = db.cursor()
-    check = (argv[4], )
-    cur.execute("SELECT * FROM states WHERE name = %s\
-    ORDER BY states.id ASC", check)
-    lst = cur.fetchall()
-    for r in lst:
-        print(r)
-    cur.close()
-    db.close()
+    cur.execute("SELECT * FROM states WHERE name=%s\
+                ORDER BY states.id ASC", (sys.argv[4],))
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)

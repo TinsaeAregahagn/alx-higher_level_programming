@@ -1,12 +1,9 @@
 #!/usr/bin/python3
-import urllib.request
-import sys
-"""
-Script that sends a request to given url
-displays the value of X-Request-Id variable
-"""
+'''task 1 script'''
 
+if __name__ == '__main__':
+    import sys
+    import urllib.request
 
-if __name__ == "__main__":
-    with urllib.request.urlopen(sys.argv[1]) as reply:
-        print(reply.getheader('X-Request-Id'))
+    with urllib.request.urlopen(sys.argv[1]) as res:
+        print(res.info()['X-Request-Id'])

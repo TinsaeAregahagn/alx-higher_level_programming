@@ -1,2 +1,2 @@
--- List all rows of first_table for database
-SELECT * FROM first_table
+-- print all information in a first_table in mysql database
+SELECT * FROM first_table;

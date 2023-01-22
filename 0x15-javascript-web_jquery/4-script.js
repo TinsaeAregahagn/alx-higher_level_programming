@@ -1,4 +1,8 @@
+const header = $('header');
 $('div#toggle_header').click(function () {
-  $('header').toggleClass('red');
-  $('header').toggleClass('green');
+  if (header.hasClass('red')) {
+    header.removeClass('red').addClass('green');
+  } else {
+    header.removeClass('green').addClass('red');
+  }
 });

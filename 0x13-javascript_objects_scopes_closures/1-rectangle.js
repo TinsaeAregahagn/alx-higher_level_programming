@@ -1,8 +1,14 @@
 #!/usr/bin/node
+/*
+    defining a rectangle class with the propeties
+    height and width
+*/
 
-module.exports = class Rectangle {
+class Rectangle {
   constructor (w, h) {
     this.width = w;
     this.height = h;
   }
-};
+}
+
+module.exports = Rectangle;

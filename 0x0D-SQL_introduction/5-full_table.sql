@@ -1,2 +1,3 @@
--- prints full description of the table first_table
-SHOW CREATE TABLE first_table
+-- print full description of table structure of first_table from hbtn_0c_0 on mysql server
+-- full description of table structure
+SHOW CREATE TABLE first_table;

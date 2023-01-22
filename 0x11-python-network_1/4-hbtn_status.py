@@ -1,12 +1,10 @@
 #!/usr/bin/python3
-import requests
-"""
-script that fetches url only with requests
-"""
+'''task 4 script'''
 
+if __name__ == '__main__':
+    import requests
 
-if __name__ == "__main__":
-    reply = requests.get('https://intranet.hbtn.io/status').text
-    print("Body response:")
-    print("\t- type: {}".format(type(reply)))
-    print("\t- content: {}".format(reply))
+    res = requests.get('https://intranet.hbtn.io/status')
+    print('Body response:')
+    print('\t- type: {}'.format(type(res.text)))
+    print('\t- content: {}'.format(res.text))

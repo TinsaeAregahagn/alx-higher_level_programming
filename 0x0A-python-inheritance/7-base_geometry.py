@@ -1,19 +1,20 @@
 #!/usr/bin/python3
-"""
-An empty class
-"""
+'''task 7 module'''
 
 
 class BaseGeometry:
-    """Public instance method: def area(self)"""
+    '''empty class'''
+    def __init__(self):
+        '''empty init'''
+        pass
 
     def area(self):
-        """raises an Exception with the message area() is not implemented"""
-        raise Exception("area() is not implemented")
+        '''stupid function'''
+        raise Exception('area() is not implemented')
 
     def integer_validator(self, name, value):
-        """Public instance method: that validates value"""
-        if not isinstance(value, int):
-            raise TypeError("{} must be an integer".format(name))
+        '''another useless function'''
+        if type(value) is not int:
+            raise TypeError(f'{name} must be an integer')
         if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
+            raise ValueError(f'{name} must be greater than 0')

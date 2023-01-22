@@ -1,14 +1,16 @@
 #!/usr/bin/python3
-"""python file containing the class definition of State and declarative base"""
-from sqlalchemy import Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
+'''task 6 db tables classes'''
 
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, String
 
 Base = declarative_base()
 
 
 class State(Base):
-    """State class inherits from Base"""
-    __tablename__ = 'states'
-    id = Column(Integer, primary_key=True, nullable=False)
+    '''state class for the state table'''
+    __tablename__ = "states"
+    id = Column(Integer, primary_key=True, nullable=False,
+                autoincrement=True, unique=True)
     name = Column(String(128), nullable=False)
+

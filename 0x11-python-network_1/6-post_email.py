@@ -1,12 +1,10 @@
 #!/usr/bin/python3
-import requests
-from sys import argv
-"""
-script to send post request to passed url with email and display
-body as response
-"""
+'''task 6 script'''
 
+if __name__ == '__main__':
+    import requests
+    import sys
 
-if __name__ == "__main__":
-    reply = requests.post(argv[1], {'email': argv[2]})
-    print(reply.text)
+    params = {'email': sys.argv[2]}
+    res = requests.post(sys.argv[1], data=params)
+    print(res.text)

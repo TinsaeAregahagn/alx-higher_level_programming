@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-"""
-Contains the lookup function
-"""
+'''module for task 0'''
 
 
 def lookup(obj):
-    """returns a list of available attributes and methods of an object"""
-    return dir(obj)
+    '''returns all the atributes and methods the object obj has'''
+    return (dir(obj))

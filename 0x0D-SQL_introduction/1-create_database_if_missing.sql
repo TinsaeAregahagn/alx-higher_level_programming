@@ -1,3 +1,2 @@
--- creating a database
--- not allowed to use show and select should not fail if database exist
-CREATE DATABASE IF NOT EXISTS hbtn_0c_0
+-- create a database if it doesnt exist on mysql server
+CREATE DATABASE IF NOT EXISTS hbtn_0c_0;

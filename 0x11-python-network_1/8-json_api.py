@@ -1,19 +1,19 @@
 #!/usr/bin/python3
-import requests
-from sys import argv
-"""
-Script that takes a letter and post request to url/search_user
-"""
+'''task 8 script'''
 
+if __name__ == '__main__':
+    import requests
+    import sys
 
-if __name__ == "__main__":
-    q = argv[1] if len(argv) > 1 else ""
+    data = {'q': sys.argv[1] if len(sys.argv) >= 2 else ""}
+    res = requests.post('http://0.0.0.0:5000/search_user', data=data)
+    text = res.text
+
     try:
-        re = requests.post('http://0.0.0.0:5000/search_user',
-                           data={'q': q}).json()
-        if 'id' in re and 'name' in re:
-            print("[{}] {}".format(re['id'], re['name']))
+        json = res.json()
+        if json.get('id', None) is None:
+            print('No result')
         else:
-            print("No result")
-    except ValueError:
-        print("Not a valid JSON")
+            print('[{}] {}'.format(json['id'], json['name']))
+    except Exception:
+        print('Not a valid JSON')

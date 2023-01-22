@@ -1,2 +1,1 @@
-Python Network
-Learning how to curl from remote
+# 0x10-python-network_0

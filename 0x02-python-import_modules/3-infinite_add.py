@@ -1,8 +1,13 @@
 #!/usr/bin/python3
+import sys
+
 if __name__ == "__main__":
-    from sys import argv
-    argc = len(argv)
-    result = 0
-    for i in range(1, argc):
-        result += int(argv[i])
-    print(f'{result:d}')
+    total = 0
+    size = len(sys.argv)
+    start = 0
+    for i in sys.argv:
+        if (start == 0):
+            start += 1
+            continue
+        total += int(i)
+    print(total)

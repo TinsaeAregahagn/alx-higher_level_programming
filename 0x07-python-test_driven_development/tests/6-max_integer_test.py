@@ -5,6 +5,7 @@ import unittest
 max_integer = __import__('6-max_integer').max_integer
 
 class TestMaxInteger(unittest.TestCase):
+
     """run test with python3 -m unittest -v tests.6-max_integer_test"""
 
     def test_module_docstring(self):
@@ -46,7 +47,6 @@ class TestMaxInteger(unittest.TestCase):
         self.assertIsNone(max_integer([]), None)
         self.assertIsNone(max_integer(), None)
         self.assertIsNone(max_integer([None]), None)
-
 
 if __name__ == "__main__":
     unittest.main()

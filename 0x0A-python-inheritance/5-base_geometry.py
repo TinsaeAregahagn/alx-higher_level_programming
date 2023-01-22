@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""
-An empty class
-"""
+'''module for task 5'''
 
 
 class BaseGeometry:
-    """Still empty"""
-    pass
+    '''empty class'''
+    def __init__(self):
+        '''empty init'''
+        pass

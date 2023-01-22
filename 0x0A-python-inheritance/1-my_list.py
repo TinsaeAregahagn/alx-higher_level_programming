@@ -1,16 +1,12 @@
 #!/usr/bin/python3
-"""
-Class
-"""
+'''module for task 1'''
 
 
 class MyList(list):
-    """Class MyList"""
-
-    def __init__(self):
-        """Inherit the mother class"""
-        super().__init__()
+    """class utilizing list class"""
 
     def print_sorted(self):
-        """prints sorted list"""
-        print(sorted(self))
+        """print sorted list"""
+        res = list.copy(self)
+        list.sort(res)
+        print(res)

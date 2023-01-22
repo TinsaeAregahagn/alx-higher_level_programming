@@ -1,22 +1,20 @@
 #!/usr/bin/python3
 """
-Prints text with 2 new lines after each of these characters: ., ? and :
-There should be no space at the beginning or at the end of each printed line
-text must be a string otherwise a typeerror will be raised
+Module 5-text_indentation
+Contains method that prints text with 2 new lines after each ".", "?", and ":"
+Takes in a string
 """
 
 
 def text_indentation(text):
     """
-    Text indentation function
+    Prints text with 2 new lines after each ".", "?", and ":"
     """
-
-    if type(text) is not str:
+    if not isinstance(text, str):
         raise TypeError("text must be a string")
 
     for char in ".?:":
         text = text.replace(char, char + "\n\n")
-
     list_lines = [lines.strip(' ') for lines in text.split('\n')]
     revised = "\n".join(list_lines)
     print(revised, end="")

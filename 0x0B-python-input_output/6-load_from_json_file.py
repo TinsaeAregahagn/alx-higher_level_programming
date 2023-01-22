@@ -1,17 +1,12 @@
 #!/usr/bin/python3
-"""
-Module for load_from_json_file method.
-"""
+'''task 6 module'''
 
 
 import json
 
 
 def load_from_json_file(filename):
-    """loads an object from JSON file.
-        Args:
-            filename (str): name of file.
-    """
-    with open(filename, "r") as j_file:
-        my_obj = json.load(j_file)
-        return my_obj
+    '''loads json from file and convert it to pyobject'''
+    with open(filename, mode='r', encoding='utf-8') as f:
+        my_object = json.load(f)
+    return my_object

@@ -1,1 +1,2 @@
-$('header')[0].style.color = 'red';
+$('header').css('color', '#FF0000')
+

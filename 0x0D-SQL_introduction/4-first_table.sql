@@ -1,2 +1,2 @@
--- create a table called first_table
-CREATE TABLE IF NOT EXISTS first_table(id INT, name VARCHAR(256))
+-- create a table in mysql database
+CREATE TABLE first_table(id INT, name VARCHAR(256));

@@ -1,23 +1,22 @@
 #!/usr/bin/python3
-from sys import argv
-import requests
-"""
-script takes 2 args and gets 10 commits
-"""
+'''task 10 script'''
 
+if __name__ == '__main__':
+    import requests
+    import sys
 
-if __name__ == "__main__":
-    """
-    argv[1] = repository
-    argv[2] = owner
-    """
-    req = requests.get('https://api.github.com/repos/{}/{}/commits'
-                       .format(argv[2], argv[1])).json()
-    count = 0
-    for commit in req:
-        name = commit.get("commit").get("author").get("name")
-        sha = commit.get("sha")
-        print("{}: {}".format(sha, name))
-        count += 1
-        if count == 10:
-            break
+    repo_name = sys.argv[1]
+    owner = sys.argv[2]
+    headers = {
+              'Accept': 'application/vnd.github.v3+json',
+              }
+    params = {
+        'per_page': 10,
+    }
+
+    res = requests.get('https://api.github.com/repos/{}/{}/commits'.format(
+                      owner, repo_name),
+                      headers=headers, params=params)
+    json_res = res.json()
+    for commit in json_res:
+        print(commit['sha'] + ':', commit['commit']['author']['name'])

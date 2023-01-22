@@ -1,12 +1,9 @@
 #!/usr/bin/python3
-import requests
-from sys import argv
-"""
-script that takes in a url to send a request to the url
-and display the values of the variable X-Request-Id
-"""
+'''task 5 script'''
 
+if __name__ == '__main__':
+    import requests
+    import sys
 
-if __name__ == "__main__":
-    reply = requests.get(argv[1])
-    print(reply.headers.get('X-Request-Id'))
+    res = requests.get(sys.argv[1])
+    print(res.headers.get('X-Request-Id'))

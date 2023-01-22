@@ -1,3 +1,4 @@
-$('div#red_header').click(function () {
-  $(this).css('color', 'red');
+const header = $('header');
+$('div#red_header').click(function() {
+    header.css('color', '#FF0000');
 });

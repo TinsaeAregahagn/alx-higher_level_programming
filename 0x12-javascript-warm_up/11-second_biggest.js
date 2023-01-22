@@ -1,21 +1,29 @@
 #!/usr/bin/node
-const inputArray = process.argv;
 
-if (process.argv.length === 2 || process.argv.length === 3) {
-  console.log(0);
-} else {
-  const newArray = inputArray.slice(2);
+let second = parseInt(process.argv[3]);
 
-  let i;
-
-  for (i = 0; i < newArray.length; i++) {
-    newArray[i] = parseInt(newArray[i]);
-  }
-
-  const firstLargest = Math.max(...newArray);
-  const index = newArray.indexOf(firstLargest);
-
-  newArray.splice(index, 1);
-  const secondLargest = Math.max(...newArray);
-  console.log(secondLargest);
+if (isNaN(second)) {
+  console.log('0');
+  process.exit();
 }
+
+let first = parseInt(process.argv[2]);
+
+if (first < second) {
+  let temp = first;
+  first = second;
+  second = temp;
+}
+
+for (let i = 4; i < process.argv.length; i++) {
+  let next = parseInt(process.argv[i]);
+  if (next > second) {
+    if (next > first) {
+      second = first;
+      first = next;
+    } else {
+      second = next;
+    }
+  }
+}
+console.log(second);

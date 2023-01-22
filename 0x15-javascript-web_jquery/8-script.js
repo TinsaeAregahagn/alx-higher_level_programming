@@ -1,3 +1,9 @@
-$.get('https://swapi.co/api/films/?format=json', function (data) {
-  $('UL#list_movies').append(...data.results.map(movie => `<li>${movie.title}</li>`));
+$.ajax({
+  url: 'https://swapi.co/api/films/?format=json',
+  type: 'GET',
+  success: result => {
+    result.results.forEach(element => {
+      $('ul#list_movies').append('<li>' + element.title + '</li>');
+    });
+  }
 });

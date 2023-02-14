@@ -1,12 +1,9 @@
 #!/usr/bin/python3
-'''task 6 module'''
-
-
+"""function that creates an object from a "JSON file"""
 import json
 
 
 def load_from_json_file(filename):
-    '''loads json from file and convert it to pyobject'''
-    with open(filename, mode='r', encoding='utf-8') as f:
-        my_object = json.load(f)
-    return my_object
+    """Creates an object from a JSON file"""
+    with open(filename) as f:
+        return json.load(f)

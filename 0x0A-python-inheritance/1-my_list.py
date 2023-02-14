@@ -1,12 +1,8 @@
 #!/usr/bin/python3
-'''module for task 1'''
+""" Documentation """
 
 
 class MyList(list):
-    """class utilizing list class"""
-
+    """ Class """
     def print_sorted(self):
-        """print sorted list"""
-        res = list.copy(self)
-        list.sort(res)
-        print(res)
+        print(sorted(self))

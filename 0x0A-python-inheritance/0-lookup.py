@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-'''module for task 0'''
+'''Python in Holberton'''
 
 
 def lookup(obj):
-    '''returns all the atributes and methods the object obj has'''
-    return (dir(obj))
+    '''returns the list of available
+    attributes and methods of an object:'''
+    return dir(obj)

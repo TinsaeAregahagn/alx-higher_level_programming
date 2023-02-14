@@ -1,37 +1,42 @@
 #!/usr/bin/python3
-'''task 10 module'''
+'''
+    Defines a student class
+'''
 
 
 class Student:
-    '''student class'''
+    '''
+        Defines a student class
+    '''
     def __init__(self, first_name, last_name, age):
-        '''Initialization of the student object'''
+        '''
+            Initializing instance variables
+        '''
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        '''return a dictionary representation of a Student instance
-        If attrs is a list of strings, only attribute names contained
-        in this list must be retrieved.
-        Otherwise, all attributes must be retrieved
         '''
-        try:
-            for attr in attrs:
-                if type(attr) is not str:
-                    return self.__dict__
-        except Exception:
-            return self.__dict__
-        my_dict = dict()
-        for key, value in self.__dict__.items():
-            if key in attrs:
-                my_dict[key] = value
-        return my_dict
+            Retrives the dict representation of the class
+        '''
+        my_dict = {}
+        if type(attrs) == list:
+            for i in attrs:
+                if type(i) != str:
+                        my_dict = self.__dict__
+                        break
+                try:
+                    my_dict[i] = getattr(self, i)
+                except:
+                    pass
+        else:
+            my_dict = self.__dict__
+        return (my_dict)
 
     def reload_from_json(self, json):
-        '''this function replaces all attributes of the Student instance
-        with the ones in the json argument
         '''
-        for key, value in json.items():
-            if key in self.__dict__:
-                self.__dict__[key] = value
+            Replaces all attributes of student instance
+        '''
+        for key, val in json.items():
+            self.__setattr__(key, val)

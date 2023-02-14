@@ -1,19 +1,24 @@
 #!/usr/bin/python3
-'''task 8 script'''
+"""Sends a POST request to http://0.0.0.0:5000/search_user with a given letter.
 
-if __name__ == '__main__':
-    import requests
-    import sys
+Usage: ./8-json_api.py <letter>
+  - The letter is sent as the value of the variable `q`.
+  - If no letter is provided, sends `q=""`.
+"""
+import sys
+import requests
 
-    data = {'q': sys.argv[1] if len(sys.argv) >= 2 else ""}
-    res = requests.post('http://0.0.0.0:5000/search_user', data=data)
-    text = res.text
 
+if __name__ == "__main__":
+    letter = "" if len(sys.argv) == 1 else sys.argv[1]
+    payload = {"q": letter}
+
+    r = requests.post("http://0.0.0.0:5000/search_user", data=payload)
     try:
-        json = res.json()
-        if json.get('id', None) is None:
-            print('No result')
+        response = r.json()
+        if response == {}:
+            print("No result")
         else:
-            print('[{}] {}'.format(json['id'], json['name']))
-    except Exception:
-        print('Not a valid JSON')
+            print("[{}] {}".format(response.get("id"), response.get("name")))
+    except ValueError:
+        print("Not a valid JSON")

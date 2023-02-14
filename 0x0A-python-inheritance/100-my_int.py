@@ -1,17 +1,13 @@
 #!/usr/bin/python3
-'''task 12 module'''
+'''Python in Holberton'''
 
 
 class MyInt(int):
-    '''weird class'''
-    def __eq__(self, other):
-        '''== method'''
-        if int.__eq__(self, other):
-            return False
-        return True
+    '''Class inherited from int'''
+    def __eq__(self, oposite):
+        '''Refers to equal to'''
+        return False
 
     def __ne__(self, other):
-        '''!= method'''
-        if int.__ne__(self, other):
-            return False
+        '''Refers to not equal to'''
         return True

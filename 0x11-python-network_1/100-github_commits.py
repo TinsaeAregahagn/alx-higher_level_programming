@@ -1,22 +1,22 @@
 #!/usr/bin/python3
-'''task 10 script'''
+"""Lists the 10 most recent commits on a given GitHub repository.
 
-if __name__ == '__main__':
-    import requests
-    import sys
+Usage: ./100-github_commits.py <repository name> <repository owner>
+"""
+import sys
+import requests
 
-    repo_name = sys.argv[1]
-    owner = sys.argv[2]
-    headers = {
-              'Accept': 'application/vnd.github.v3+json',
-              }
-    params = {
-        'per_page': 10,
-    }
 
-    res = requests.get('https://api.github.com/repos/{}/{}/commits'.format(
-                      owner, repo_name),
-                      headers=headers, params=params)
-    json_res = res.json()
-    for commit in json_res:
-        print(commit['sha'] + ':', commit['commit']['author']['name'])
+if __name__ == "__main__":
+    url = "https://api.github.com/repos/{}/{}/commits".format(
+        sys.argv[2], sys.argv[1])
+
+    r = requests.get(url)
+    commits = r.json()
+    try:
+        for i in range(10):
+            print("{}: {}".format(
+                commits[i].get("sha"),
+                commits[i].get("commit").get("author").get("name")))
+    except IndexError:
+        pass

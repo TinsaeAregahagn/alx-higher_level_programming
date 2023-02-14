@@ -1,9 +1,13 @@
 #!/usr/bin/python3
-'''module for task 0'''
+'''
+    function to handle open and read files
+'''
 
 
 def read_file(filename=""):
-    '''reads a file in utf-8 encoding'''
-    with open(filename, encoding='utf-8') as p:
-        txt = p.read()
-    print(txt, end='')
+    '''
+    function to read a file
+    '''
+
+    with open(filename, encoding='utf-8') as f:
+        print(f.read(), end="")

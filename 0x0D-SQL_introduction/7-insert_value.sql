@@ -1,2 +1,2 @@
--- insert data into first_table in hbtn_0c_0 database on mysql server
-INSERT INTO `first_table` (`id`, `name`) VALUES (89, 'Best School');
+-- a script that inserts a new row in the table first_table (database hbtn_0c_0) in your MySQL server.
+INSERT INTO `first_table` (`id`, `name`) VALUES (89, "Best School");

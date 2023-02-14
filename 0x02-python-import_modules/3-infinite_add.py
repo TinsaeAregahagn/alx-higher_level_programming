@@ -1,13 +1,10 @@
 #!/usr/bin/python3
-import sys
+from sys import argv
 
-if __name__ == "__main__":
-    total = 0
-    size = len(sys.argv)
-    start = 0
-    for i in sys.argv:
-        if (start == 0):
-            start += 1
-            continue
-        total += int(i)
-    print(total)
+i, res = 1, 0
+
+if __name__ == '__main__':
+    while i < len(argv):
+        res += int(argv[i])
+        i += 1
+    print(res)

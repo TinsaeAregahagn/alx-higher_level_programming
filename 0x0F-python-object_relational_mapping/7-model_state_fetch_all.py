@@ -1,24 +1,21 @@
 #!/usr/bin/python3
-'''script  for task 7'''
+"""
+ lists all State objects from the database hbtn_0e_6_usa
+"""
 
-from model_state import Base, State
+import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-import sys
+from model_state import State
 
 if __name__ == "__main__":
-    username = sys.argv[1]
-    password = sys.argv[2]
-    db_name = sys.argv[3]
-    host = 'localhost'
-    port = '3306'
-    engine = create_engine('mysql+mysqldb://{}:{}@{}:{}/{}'.format(
-             username, password, host, port, db_name), pool_pre_ping=True)
-    Session = sessionmaker(bind=engine)
-    local_session = Session()
-    states = local_session.query(State).order_by(State.id).all()
-    local_session.close()
-    engine.dispose()
+    engine = create_engine(
+        "mysql+mysqldb://{}:{}@localhost/{}"
+        .format(sys.argv[1], sys.argv[2], sys.argv[3]),
+        pool_pre_ping=True
+    )
+    session_maker = sessionmaker(bind=engine)
+    session = session_maker()
 
-    for state in states:
-        print(str(state.id) + ': ' + state.name)
+    for state in session.query(State).order_by(State.id):
+        print("{}: {}".format(state.id, state.name))

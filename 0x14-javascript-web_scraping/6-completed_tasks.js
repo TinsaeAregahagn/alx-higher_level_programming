@@ -1,24 +1,21 @@
 #!/usr/bin/node
-const request = require('request');
 
-if (process.argv.length > 2) {
-  const result = {};
-  request(process.argv[2], (err, res, body) => {
-    if (err) {
-      console.log(err);
-    } else {
-      const data = JSON.parse(body);
-      data.filter(task => {
-        if (task.completed === true) {
-          if (Object.prototype.hasOwnProperty.call(result, task.userId.toString())) {
-            result[task.userId.toString()]++;
-          } else {
-            result[task.userId.toString()] = 1;
-          }
-        }
-        return 'piibPoob';
-      });
-      console.log(result);
+const request = require('request');
+const url = process.argv[2];
+
+request(url, function (error, response, body) {
+  if (error) {
+    console.log(error);
+  }
+  const completed = {};
+  for (const task of JSON.parse(body)) {
+    if (task.completed === true) {
+      if (completed[task.userId]) {
+        completed[task.userId]++;
+      } else {
+        completed[task.userId] = 1;
+      }
     }
-  });
-}
+  }
+  console.log(completed);
+});

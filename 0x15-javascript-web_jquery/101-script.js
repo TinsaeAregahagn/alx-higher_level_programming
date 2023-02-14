@@ -1,17 +1,11 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const list = $('UL.my_list');
-  const item = '<li>Item</li>';
+$(function () {
   $('div#add_item').click(function () {
-    list.append(item);
+    $('.my_list').append('<li>Item</li>');
   });
-
   $('div#remove_item').click(function () {
-    $('ul.my_list li:last-child').remove();
+    $('.my_list li').last().remove();
   });
-
   $('div#clear_list').click(function () {
-    $('ul.my_list li').each(function () {
-      $(this).remove();
-    });
+    $('.my_list').remove();
   });
 });

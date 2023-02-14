@@ -1,13 +1,9 @@
 #!/usr/bin/python3
-'''task 6 module'''
+'''Python in Holberton'''
 
 
-class BaseGeometry:
-    '''empty class'''
-    def __init__(self):
-        '''empty init'''
-        pass
-
+class BaseGeometry():
+    '''Basic class'''
     def area(self):
-        '''stupid function'''
-        raise Exception('area() is not implemented')
+        '''Method no implemented yet'''
+        raise Exception("area() is not implemented")

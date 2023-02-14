@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-'''task 2 module'''
+"""function that appends a string to the end"""
 
 
 def append_write(filename="", text=""):
-    '''appends text to a file'''
-    with open(filename, mode='a', encoding='utf-8') as m:
-        words = m.write(text)
-    return words
+    """docstring for append"""
+    with open(filename, mode="a", encoding="utf-8") as f:
+        return f.write(text)

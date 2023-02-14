@@ -1,7 +1,3 @@
-document.addEventListener('DOMContentLoaded', function () {
-  $.get('https://fourtonfish.com/hellosalut/?lang=fr', function (data, status) {
-    if (status === 'success') {
-      $('div#hello').text(data.hello);
-    }
-  });
+$.get('https://fourtonfish.com/hellosalut/?lang=fr', function (data) {
+  $('div#hello').text(data.hello);
 });

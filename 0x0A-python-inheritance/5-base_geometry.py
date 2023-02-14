@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-'''module for task 5'''
+'''Python in Holberton'''
 
 
-class BaseGeometry:
-    '''empty class'''
-    def __init__(self):
-        '''empty init'''
-        pass
+class BaseGeometry():
+    '''Empty class'''
+    pass

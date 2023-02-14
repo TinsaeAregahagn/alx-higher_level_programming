@@ -1,20 +1,16 @@
 #!/usr/bin/python3
-'''task 7 module'''
+'''Python in Holberton'''
 
 
-class BaseGeometry:
-    '''empty class'''
-    def __init__(self):
-        '''empty init'''
-        pass
-
+class BaseGeometry():
+    ''''Basic class'''
     def area(self):
-        '''stupid function'''
-        raise Exception('area() is not implemented')
+        '''Method no implements yet'''
+        raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
-        '''another useless function'''
+        '''Validates right input'''
         if type(value) is not int:
-            raise TypeError(f'{name} must be an integer')
+            raise TypeError(name + " must be an integer")
         if value <= 0:
-            raise ValueError(f'{name} must be greater than 0')
+            raise ValueError(name + " must be greater than 0")
